@@ -1,0 +1,8 @@
+NAME                 MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+vdb                  253:16   0  20G  0 disk 
+`-vdb1               253:17   0  20G  0 part 
+  `-drbdpool-drbdata 252:0    0  20G  0 lvm  
+    `-drbd1          147:1    0  20G  0 disk /mnt/hdd
+vda                  253:0    0  45G  0 disk 
+|-vda2               253:2    0  45G  0 part /
+`-vda1               253:1    0   8M  0 part 
