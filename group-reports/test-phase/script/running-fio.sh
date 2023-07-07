@@ -31,3 +31,7 @@ sudo rm /mnt/hdd/output_file
 rmdir -rf results/$CONFIG_NAME
 mkdir results/$CONFIG_NAME
 cp test*.txt results/$CONFIG_NAME
+
+git add results
+git commit -m "add results of running config $CONFIG_NAME"
+git push
