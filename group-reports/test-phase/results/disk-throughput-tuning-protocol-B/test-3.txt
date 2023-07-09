@@ -1,0 +1,35 @@
+read-randomly-test-job: (g=0): rw=randread, bs=(R) 8192B-8192B, (W) 8192B-8192B, (T) 8192B-8192B, ioengine=libaio, iodepth=16
+...
+fio-3.7
+Starting 16 processes
+read-randomly-test-job: Laying out IO file (1 file / 10240MiB)
+
+read-randomly-test-job: (groupid=0, jobs=16): err= 0: pid=28637: Sun Jul  9 15:50:13 2023
+   read: IOPS=200, BW=1601KiB/s (1639kB/s)(940MiB/601275msec)
+    slat (usec): min=4, max=128043, avg=99.53, stdev=472.42
+    clat (usec): min=251, max=2520.3k, avg=1278909.45, stdev=48288.22
+     lat (msec): min=93, max=2520, avg=1279.01, stdev=48.26
+    clat percentiles (msec):
+     |  1.00th=[ 1267],  5.00th=[ 1267], 10.00th=[ 1267], 20.00th=[ 1267],
+     | 30.00th=[ 1284], 40.00th=[ 1284], 50.00th=[ 1284], 60.00th=[ 1284],
+     | 70.00th=[ 1284], 80.00th=[ 1284], 90.00th=[ 1284], 95.00th=[ 1301],
+     | 99.00th=[ 1318], 99.50th=[ 1334], 99.90th=[ 1636], 99.95th=[ 1871],
+     | 99.99th=[ 2400]
+   bw (  KiB/s): min=   15, max=  320, per=7.38%, avg=118.11, stdev=77.64, samples=16218
+   iops        : min=    1, max=   40, avg=14.49, stdev= 9.72, samples=16218
+  lat (usec)   : 500=0.01%
+  lat (msec)   : 100=0.02%, 250=0.05%, 500=0.05%, 750=0.04%, 1000=0.04%
+  cpu          : usr=0.06%, sys=0.14%, ctx=118830, majf=0, minf=641
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=99.8%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=120299,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+   READ: bw=1601KiB/s (1639kB/s), 1601KiB/s-1601KiB/s (1639kB/s-1639kB/s), io=940MiB (985MB), run=601275-601275msec
+
+Disk stats (read/write):
+    drbd1: ios=120299/7, merge=0/0, ticks=153689788/419, in_queue=153690207, util=99.53%, aggrios=120299/10, aggrmerge=0/0, aggrticks=153737822/394, aggrin_queue=153738216, aggrutil=99.52%
+    dm-0: ios=120299/10, merge=0/0, ticks=153737822/394, in_queue=153738216, util=99.52%, aggrios=120299/10, aggrmerge=0/0, aggrticks=153741574/88, aggrin_queue=153681404, aggrutil=99.53%
+  vdb: ios=120299/10, merge=0/0, ticks=153741574/88, in_queue=153681404, util=99.53%
