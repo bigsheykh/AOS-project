@@ -1,3 +1,6 @@
+echo none | sudo tee /sys/block/vdb/queue/scheduler
+ssh centos@192.168.1.2 'echo none | sudo tee /sys/block/vdb/queue/scheduler'
+
 bash script/running-fio.sh write-tuning-protocol-A-sndbuf-2M
 bash script/running-fio.sh protocol-A
 bash script/running-fio.sh write-tuning-protocol-A
