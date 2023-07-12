@@ -21,7 +21,7 @@ download ubuntu kernel:
 	tar xvfz linux-5.4.200.tar.gz
 	cd linux-5-4-200
 	make menuconfig
-	make
+	make -j$(nproc)
 	sudo make modules_install
 	sudo make install # ignore exception
 	sudo vim /etc/default/grub # (set GRUB_CMDLINE_LINUX="crashkernel=auto rhgb quiet", GRUB_DEFAULT=0) remove unneccary
