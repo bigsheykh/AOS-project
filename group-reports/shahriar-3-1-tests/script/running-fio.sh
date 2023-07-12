@@ -30,10 +30,11 @@ sudo fio --filename=/mnt/hdd/output_file --direct=1 --random_distribution=zipf:1
 
 sudo rm /mnt/hdd/output_file
 
-rm -rf $CONFIG_NAME
-mkdir $CONFIG_NAME
-cp test*.txt $CONFIG_NAME
+rm -rf $OUTPUT_DIRECTORY
+mkdir $OUTPUT_DIRECTORY
+cp test*.txt $OUTPUT_DIRECTORY
 
+git pull
 git add results
 git commit -m "add results of running config $CONFIG_NAME"
 git push
