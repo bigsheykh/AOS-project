@@ -2,10 +2,10 @@ echo deadline | sudo tee /sys/block/vdb/queue/scheduler
 echo 0 | sudo tee /sys/block/vdb/queue/iosched/front_merges
 echo 120 | sudo tee /sys/block/vdb/queue/iosched/read_expire
 echo 1200 | sudo tee /sys/block/vdb/queue/iosched/write_expire
-ssh centos@192.168.1.1 'echo deadline | sudo tee /sys/block/vdb/queue/scheduler'
-ssh centos@192.168.1.1 'echo 0 | sudo tee /sys/block/vdb/queue/iosched/front_merges'
-ssh centos@192.168.1.1 'echo 120 | sudo tee /sys/block/vdb/queue/iosched/read_expire'
-ssh centos@192.168.1.1 'echo 1200 | sudo tee /sys/block/vdb/queue/iosched/write_expire'
+ssh centos@192.168.1.11 'echo deadline | sudo tee /sys/block/vdb/queue/scheduler'
+ssh centos@192.168.1.11 'echo 0 | sudo tee /sys/block/vdb/queue/iosched/front_merges'
+ssh centos@192.168.1.11 'echo 120 | sudo tee /sys/block/vdb/queue/iosched/read_expire'
+ssh centos@192.168.1.11 'echo 1200 | sudo tee /sys/block/vdb/queue/iosched/write_expire'
 
 mkdir results-after-queue
 
