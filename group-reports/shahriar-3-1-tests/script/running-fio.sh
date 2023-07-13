@@ -36,6 +36,6 @@ cp test*.txt $OUTPUT_DIRECTORY
 
 git pull
 git add $OUTPUT_DIRECTORY_FOR_RESULTS
-git commit -m "add results of running config $CONFIG_NAME from sharif-3"
+git commit -m "add results of running config $CONFIG_NAME from shahriar-3"
 git push
 
