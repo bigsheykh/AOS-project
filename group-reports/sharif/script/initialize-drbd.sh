@@ -31,7 +31,7 @@ install drdb:
 	git checkout bfd2450739e3e27cfd0a2eece2cde3d94ad993ae
 	git submodule update --init --recursive
 	make -j$(nproc)
-	sudo make install
+	sudo make install -j$(nproc)
 
 install drbd-utils:
 	sudo yum -y install libxslt docbook-xsl asciidoc asciidoctor po4a
@@ -41,7 +41,7 @@ install drbd-utils:
 	./autogen.sh
 	./configure --prefix=/usr --localstatedir=/var --sysconfdir=/etc
 	make -j$(nproc)
-	sudo make install
+	sudo make install -j$(nproc)
 	sudo modprobe drbd
 
 use drbd:
@@ -55,6 +55,9 @@ use drbd:
 	sudo lvcreate -n drbdata -l100%FREE drbdpool
 	sudo pvs && sudo vgs # checking lvm settings
 	
+	sudo iptables -A INPUT -p tcp --dport 7788 -j ACCEPT
+	sudo firewall-cmd --add-port=7788/tcp --permanent
+	sudo firewall-cmd --reload
 	sudo drbdadm create-md r0
 	sudo drbdadm up r0
 
