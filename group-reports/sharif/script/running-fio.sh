@@ -8,8 +8,8 @@ sudo cp drbd-config/$CONFIG_NAME/r0.res /etc/drbd.d/
 sudo drbdadm adjust r0
 
 # use sshfs and ssh-copy-id before that
-ssh user1@213.233.184.100 'sudo drbdadm adjust r0'
-ssh user1@213.233.184.100 'sudo drbdadm status r0'
+ssh root@213.233.184.100 ' drbdadm adjust r0'
+ssh root@213.233.184.100 ' drbdadm status r0'
 
 sudo fio --filename=/mnt/hdd/output_file --direct=1 --readwrite=read --bs=4M --ioengine=libaio --iodepth=16 --numjobs=1 --runtime=600 --time_based --group_reporting --name=read-sequentially-test-job --refill_buffers --norandommap --randrepeat=0 --size=$SIZE_OF_FILE > test-1.txt
 sudo rm -rf /mnt/hdd/output_file

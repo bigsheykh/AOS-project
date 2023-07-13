@@ -1,11 +1,11 @@
-echo deadline | sudo tee /sys/block/vdb/queue/scheduler
-echo 0 | sudo tee /sys/block/vdb/queue/iosched/front_merges
-echo 120 | sudo tee /sys/block/vdb/queue/iosched/read_expire
-echo 1200 | sudo tee /sys/block/vdb/queue/iosched/write_expire
-ssh user1@213.233.184.100 'echo deadline | sudo tee /sys/block/vdb/queue/scheduler'
-ssh user1@213.233.184.100 'echo 0 | sudo tee /sys/block/vdb/queue/iosched/front_merges'
-ssh user1@213.233.184.100 'echo 120 | sudo tee /sys/block/vdb/queue/iosched/read_expire'
-ssh user1@213.233.184.100 'echo 1200 | sudo tee /sys/block/vdb/queue/iosched/write_expire'
+echo deadline | sudo tee /sys/block/sde/queue/scheduler
+echo 0 | sudo tee /sys/block/sde/queue/iosched/front_merges
+echo 120 | sudo tee /sys/block/sde/queue/iosched/read_expire
+echo 1200 | sudo tee /sys/block/sde/queue/iosched/write_expire
+ssh root@213.233.184.100 'echo deadline | tee /sys/block/sde/queue/scheduler'
+ssh root@213.233.184.100 'echo 0 | tee /sys/block/sde/queue/iosched/front_merges'
+ssh root@213.233.184.100 'echo 120 | tee /sys/block/sde/queue/iosched/read_expire'
+ssh root@213.233.184.100 'echo 1200 | tee /sys/block/sde/queue/iosched/write_expire'
 
 mkdir results-after-queue
 
