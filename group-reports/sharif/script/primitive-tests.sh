@@ -1,5 +1,5 @@
 echo none | sudo tee /sys/block/vdb/queue/scheduler
-ssh root@213.233.184.100 'echo none | tee /sys/block/vdb/queue/scheduler'
+ssh user1@213.233.184.100 'echo none | sudo tee /sys/block/vdb/queue/scheduler'
 mkdir results
 
 bash script/running-fio.sh write-tuning-protocol-A-sndbuf-2M results 10G
