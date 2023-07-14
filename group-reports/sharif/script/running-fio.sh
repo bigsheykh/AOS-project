@@ -1,7 +1,7 @@
 CONFIG_NAME=$1
 OUTPUT_DIRECTORY_FOR_RESULTS=$2
-OUTPUT_DIRECTORY="$OUTPUT_DIRECTORY_FOR_RESULTS/$CONFIG_NAME"
 SIZE_OF_FILE=$3
+OUTPUT_DIRECTORY="$OUTPUT_DIRECTORY_FOR_RESULTS/$SIZE_OF_FILE-$CONFIG_NAME"
 
 echo "config $CONFIG_NAME is running."
 sudo cp drbd-config/$CONFIG_NAME/r0.res /etc/drbd.d/
@@ -31,6 +31,6 @@ mkdir $OUTPUT_DIRECTORY
 mv test*.txt $OUTPUT_DIRECTORY
 
 git pull
-git add results
+git add $OUTPUT_DIRECTORY_FOR_RESULTS
 git commit -m "add results of running config $CONFIG_NAME in sharif-3"
 git push
