@@ -115,23 +115,23 @@ def read_file(file_directory):
             "io": file_info['read_basic_info']["io"],
         },
         "Read Latency": {
-            "min": file_info['read_latency']["min"],
-            "max": file_info['read_latency']["max"],
-            "average": file_info['read_latency']["avg"],
+            "min": file_info['read_latency']["min"] + " " + file_info['read_latency']["unit"],
+            "max": file_info['read_latency']["max"] + " " + file_info['read_latency']["unit"],
+            "average": file_info['read_latency']["avg"] + " " + file_info['read_latency']["unit"],
         },
         "Read Bandwidth (KiB/s)": {
             "min": file_info['read_bandwidth']["min"],
             "max": file_info['read_bandwidth']["max"],
             "average": file_info['read_bandwidth']["avg"],
         },
-        "Disk": {"Utility": file_info['original_disk_stat']["utility"]},
+        "Disk": {"Utility (Percent)": file_info['original_disk_stat']["utility"]},
     }
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("shahriar-3-1-tests/resluts"):
-    result_address = "shahriar-3-1-tests/resluts/{}/test-3.txt".format(file.name)
+    result_address = "shahriar-3-1-tests/resluts/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -140,13 +140,13 @@ for file in os.scandir("shahriar-3-1-tests/resluts"):
 columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
-df.to_excel('tables/shahriar-3-1-results-test-3.xlsx')
+df.to_excel('tables/shahriar-3-1-results-test-1.xlsx')
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("shahriar-3-1-tests/results-after-queue"):
-    result_address = "shahriar-3-1-tests/results-after-queue/{}/test-3.txt".format(file.name)
+    result_address = "shahriar-3-1-tests/results-after-queue/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -156,15 +156,15 @@ columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
 
-df.to_excel('tables/shahriar-3-1-results-after-queue-test-3.xlsx')
+df.to_excel('tables/shahriar-3-1-results-after-queue-test-1.xlsx')
 
 
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("shahriar-1-2-tests/first-results"):
-    result_address = "shahriar-1-2-tests/first-results/{}/test-3.txt".format(file.name)
+    result_address = "shahriar-1-2-tests/first-results/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -173,13 +173,13 @@ for file in os.scandir("shahriar-1-2-tests/first-results"):
 columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
-df.to_excel('tables/shahriar-1-2-tests-first-results-test-3.xlsx')
+df.to_excel('tables/shahriar-1-2-tests-first-results-test-1.xlsx')
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("shahriar-1-2-tests/results"):
-    result_address = "shahriar-1-2-tests/results/{}/test-3.txt".format(file.name)
+    result_address = "shahriar-1-2-tests/results/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -189,15 +189,15 @@ columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
 
-df.to_excel('tables/shahriar-1-2-tests-results-test-3.xlsx')
+df.to_excel('tables/shahriar-1-2-tests-results-test-1.xlsx')
 
 
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("shahriar-1-2-tests/results-after-queue"):
-    result_address = "shahriar-1-2-tests/results-after-queue/{}/test-3.txt".format(file.name)
+    result_address = "shahriar-1-2-tests/results-after-queue/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -207,13 +207,13 @@ columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
 
-df.to_excel('tables/shahriar-1-2-tests-results-after-queue-test-3.xlsx')
+df.to_excel('tables/shahriar-1-2-tests-results-after-queue-test-1.xlsx')
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("sharif/results"):
-    result_address = "sharif/results/{}/test-3.txt".format(file.name)
+    result_address = "sharif/results/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -223,13 +223,13 @@ columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
 
-df.to_excel('tables/sharif-results-test-3.xlsx')
+df.to_excel('tables/sharif-results-test-1.xlsx')
 
 
-columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility']]
+columns = [['CPU', 'user_percentage'], ['CPU', 'sys_percentage'], ['Issued Read Write', 'total read'], ['Issued Read Write', 'total write'], ['Basic Read Info', 'IOPS'], ['Basic Read Info', 'bandwidth'], ['Basic Read Info', 'io'], ['Read Latency', 'min'], ['Read Latency', 'max'], ['Read Latency', 'average'], ['Read Bandwidth (KiB/s)', 'min'], ['Read Bandwidth (KiB/s)', 'max'], ['Read Bandwidth (KiB/s)', 'average'], ['Disk', 'Utility (Percent)']]
 names = ["DRBD", "Config"]
 for file in os.scandir("sharif/results-after-queue"):
-    result_address = "sharif/results-after-queue/{}/test-3.txt".format(file.name)
+    result_address = "sharif/results-after-queue/{}/test-1.txt".format(file.name)
     data = read_file(result_address)
     for tup in columns:
         tup.append(data[tup[0]][tup[1]])
@@ -239,4 +239,4 @@ columns = pd.MultiIndex.from_tuples(columns, names=names)
 df = pd.DataFrame(columns=columns)
 
 
-df.to_excel('tables/sharif-results-after-queue-test-3.xlsx')
+df.to_excel('tables/sharif-results-after-queue-test-1.xlsx')
