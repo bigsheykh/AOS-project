@@ -127,7 +127,7 @@ def read_file(file_directory):
         "Write Latency": {
             "min": file_info['write_latency']["min"],
             "max": file_info['write_latency']["max"],
-            "average": file_info['read_latency']["avg"],
+            "average": file_info['write_latency']["avg"],
         },
         "Read Bandwidth (KiB/s)": {
             "min": file_info['read_bandwidth']["min"],
