@@ -100,7 +100,7 @@ def read_file(file_directory):
     return file_info
 
 
-print(read_file("shahriar/test-5.txt"))
+print(read_file("../shahriar-1-2-tests/results/protocol-A/test-5.txt"))
 # print(read_file("sharif/test-5.txt"))
-print(read_file("sharif/test-1.txt"))
+# print(read_file("sharif/test-1.txt"))
 
