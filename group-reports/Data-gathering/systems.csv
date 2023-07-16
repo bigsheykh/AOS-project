@@ -1,4 +1,4 @@
-Name,# of cores,memory size(KB), cache size for a core(KB), disk size(GB), disk type
+Name,# of cores,memory size(KB), cache size for a core(KB), storage size(GB), storage type
 sharif,16,16367772,56320,128,ssd
 shahriar-1-2-tests,1,994660,16384,20,hdd
 shahriar-3-1-tests,4,8154712,16384,20,hdd
